@@ -1,11 +1,12 @@
 import { GlobalStyles } from "./assets/styles/global";
-import { Profile } from "./components/Profile";
+import { Home } from "./page/home";
+
 
 export function App() {
   return (
     <>
       <GlobalStyles />
-      <Profile />
+      <Home/>
     </>
   );
 }

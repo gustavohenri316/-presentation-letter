@@ -11,37 +11,48 @@ export const Container = styled.div<ProfileProps>`
   align-items: center;
   overflow: auto;
   flex-direction: column;
+  margin-bottom: 5rem;
+
 
 `
 export const ButtonView = styled.button<ProfileProps>`
   width: 50px;
-  display: ${(props) => props.showIsNav === true ? 'none' : 'flex'};
   right: 1rem;
   margin-right: 80%;
   border: none;
   background: transparent;
-  color: #2B2B2B;
+  color: gray;
   cursor: pointer;
   transition: all 0.2s;
   &:hover{
     filter: brightness(0.9);
   }
+  display: none;
+  @media (max-width: 1200px) {
+    display: ${(props) => props.showIsNav === true ? 'none' : 'flex'};
+    }
+  @media (max-width: 2400px) {
+    display: ${(props) => props.showIsNav === false ? 'flex' : 'none'};
+    }
 `
 export const ButtonClose = styled.button<ProfileProps>`
   width: 50px;
-  display: ${(props) => props.showIsNav === false ? 'none' : 'flex'};
+  display: none;
   right: 1rem;
   align-items: flex-end;
   justify-content: center;
   margin-left: 80%;
   border: none;
   background: transparent;
-  color: #2B2B2B;
+  color: gray;
   cursor: pointer;
   transition: all 0.2s;
   &:hover{
     filter: brightness(0.9);
   }
+  @media (max-width: 1200px) {
+    display: ${(props) => props.showIsNav === false ? 'none' : 'flex'};
+      }
 `
 
 export const Content = styled.div<ProfileProps>`
@@ -388,6 +399,7 @@ export const Button = styled.button`
 
   &:hover{
     filter: brightness(0.9);
+    color: #000;
   }
   margin-bottom: 3rem;
 `

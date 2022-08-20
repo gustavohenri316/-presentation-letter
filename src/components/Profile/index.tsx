@@ -32,7 +32,7 @@ import {
 import { useState } from "react";
 
 export function Profile() {
-  const [showIsNav, setShowIsNav] = useState(false);
+  const [showIsNav, setShowIsNav] = useState(true);
   return (
     <Container showIsNav={showIsNav}>
       <ButtonView onClick={() => setShowIsNav(true)} showIsNav={showIsNav}>
