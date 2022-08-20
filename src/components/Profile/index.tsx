@@ -7,6 +7,8 @@ import {
   Envelope,
   Browsers,
   DownloadSimple,
+  List,
+  X,
 } from "phosphor-react";
 import {
   Container,
@@ -18,18 +20,28 @@ import {
   Skills,
   ExtraSkills,
   Section,
-  Button
+  Button,
+  ButtonView,
+  ButtonClose,
 } from "./styles";
 import {
   profileData,
   languagesData,
   skillsData,
 } from "../../assets/data/profile";
+import { useState } from "react";
 
 export function Profile() {
+  const [showIsNav, setShowIsNav] = useState(false);
   return (
-    <Container>
-      <Content>
+    <Container showIsNav={showIsNav}>
+      <ButtonView onClick={() => setShowIsNav(true)} showIsNav={showIsNav}>
+        <List size={24} weight="bold" />
+      </ButtonView>
+      <ButtonClose onClick={() => setShowIsNav(false)} showIsNav={showIsNav}>
+        <X size={24} weight="bold" />
+      </ButtonClose>
+      <Content showIsNav={showIsNav}>
         <ProfileContainer>
           <div className="profile">
             <img

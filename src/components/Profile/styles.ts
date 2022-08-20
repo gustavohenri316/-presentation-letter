@@ -1,21 +1,53 @@
 import styled from "styled-components";
-
-export const Container = styled.div`
+interface ProfileProps {
+  showIsNav: boolean
+}
+export const Container = styled.div<ProfileProps>`
   width: 305px;
   height: 100%;
-  background: #FFFFFF;
+  background: ${(props) => props.showIsNav === false ? 'transparent' : '#FFF'};
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: auto;
+  flex-direction: column;
 
- 
- 
 `
-export const Content = styled.div`
+export const ButtonView = styled.button<ProfileProps>`
+  width: 50px;
+  display: ${(props) => props.showIsNav === true ? 'none' : 'flex'};
+  right: 1rem;
+  margin-right: 80%;
+  border: none;
+  background: transparent;
+  color: #2B2B2B;
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover{
+    filter: brightness(0.9);
+  }
+`
+export const ButtonClose = styled.button<ProfileProps>`
+  width: 50px;
+  display: ${(props) => props.showIsNav === false ? 'none' : 'flex'};
+  right: 1rem;
+  align-items: flex-end;
+  justify-content: center;
+  margin-left: 80%;
+  border: none;
+  background: transparent;
+  color: #2B2B2B;
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover{
+    filter: brightness(0.9);
+  }
+`
+
+export const Content = styled.div<ProfileProps>`
   width: 220px;
   height: 100%;
-  display: flex;
+  display: ${(props) => props.showIsNav === false ? 'none' : 'flex'};
   align-items: center;
   justify-content: center;
   flex-direction: column;
