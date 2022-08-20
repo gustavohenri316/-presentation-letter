@@ -6,18 +6,24 @@ import {
   BriefcaseMetal,
   Needle,
   EnvelopeSimple,
+  Moon,
 } from "phosphor-react";
 import { useState } from "react";
 import { Container, Content } from "./styles";
 
 export function Navbar() {
   const [navItesmSelected, setNavItemSelected] = useState("Home");
-  console.log(navItesmSelected)
+  const [theme, setTheme] = useState("light");
+  console.log(theme);
   return (
     <Container>
-      <Content themeStyles={navItesmSelected}>
+      <Content themeStyles={navItesmSelected} tema={theme}>
         <div className="theme">
-          <SunDim size={34} />
+          {theme === "light" ? (
+            <Moon size={34} onClick={() => setTheme("dark")} />
+          ) : (
+            <SunDim size={34} onClick={() => setTheme("light")} />
+          )}
         </div>
         <div className="nav-items">
           <section>
@@ -25,7 +31,7 @@ export function Navbar() {
               <div className="info">Home</div>
               <div className="triangulo"></div>
             </div>
-            <a  className="Home" onClick={() => setNavItemSelected("Home")}>
+            <a className="Home" onClick={() => setNavItemSelected("Home")}>
               <House size={24} />
             </a>
           </section>
@@ -34,7 +40,10 @@ export function Navbar() {
               <div className="info">Projects</div>
               <div className="triangulo"></div>
             </div>
-            <a  className="Projects" onClick={() => setNavItemSelected("Projects")}>
+            <a
+              className="Projects"
+              onClick={() => setNavItemSelected("Projects")}
+            >
               <FileCode size={24} />
             </a>
           </section>
@@ -43,7 +52,10 @@ export function Navbar() {
               <div className="info">Student</div>
               <div className="triangulo"></div>
             </div>
-            <a  className="Student" onClick={() => setNavItemSelected("Student")}>
+            <a
+              className="Student"
+              onClick={() => setNavItemSelected("Student")}
+            >
               <Student size={24} />
             </a>
           </section>
@@ -52,7 +64,7 @@ export function Navbar() {
               <div className="info">Job</div>
               <div className="triangulo"></div>
             </div>
-            <a  className="Job" onClick={() => setNavItemSelected("Job")}>
+            <a className="Job" onClick={() => setNavItemSelected("Job")}>
               <BriefcaseMetal size={24} />
             </a>
           </section>
@@ -61,7 +73,10 @@ export function Navbar() {
               <div className="info">Contact</div>
               <div className="triangulo"></div>
             </div>
-            <a  className="Contact" onClick={() => setNavItemSelected("Contact")}>
+            <a
+              className="Contact"
+              onClick={() => setNavItemSelected("Contact")}
+            >
               <EnvelopeSimple size={24} />
             </a>
           </section>

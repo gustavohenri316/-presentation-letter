@@ -20,6 +20,7 @@ export const Container = styled.div`
 `
 interface ContentProps{
   themeStyles: string
+  tema: string
 }
 export const Content = styled.div<ContentProps>`
   display: flex;
@@ -28,6 +29,17 @@ export const Content = styled.div<ContentProps>`
   gap: 177px;
   flex-direction: column;
 
+  .theme{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: ${(props)=> props.tema === 'light' ? '#2B2B2B' : '#FFB400'};
+    cursor: pointer;
+    color: ${(props)=> props.tema === 'light' ? '#fff' : '#2B2B2B'};
+  }
   @media (max-width: 620px) {
     gap: 80px;
     width: 580px;
